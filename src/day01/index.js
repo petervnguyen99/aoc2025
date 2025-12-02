@@ -73,10 +73,10 @@ const part2 = (rawInput) => {
   const checkStartNumLeftPart2 = (number, checkNum) => {
     if(number < 0) {
       const remainder = Math.abs(number);
-      if((99 - (remainder - 1)) !== 0 && checkNum !== 0) {
+      if((100 - remainder) !== 0 && checkNum !== 0) {
         zeroCounterPart2 += 1
       }
-      return 99 - (remainder - 1);
+      return 100 - remainder;
     } 
     return number;
   }
@@ -89,7 +89,6 @@ const part2 = (rawInput) => {
     if(direction == 'R') {
       if(clicks >= 100) {
         const visitedZero = clicks / 100;
-        // zeroCounterPart2 += Number(visitedZero.toFixed()); <- This mf right here 
         zeroCounterPart2 += Math.floor(visitedZero)
         const clicksRemainder = clicks % 100;
         startNum = checkStartNumRightPart2(startNum + clicksRemainder);
@@ -191,9 +190,17 @@ run({
       {
         input:`
         L50
-        R101
+        R143
         `,
         expected: 2
+      },
+      {
+        input:`
+        L50
+        L200
+        R300
+        `,
+        expected: 6
       }
 
 
