@@ -67,7 +67,6 @@ const part2 = (rawInput) => {
       }
       return remainder - 1
     }
-
     return number;
   }
   const checkStartNumLeftPart2 = (number, checkNum) => {
@@ -198,15 +197,102 @@ run({
         input:`
         L50
         L200
-        R300
         `,
-        expected: 6
+        expected: 3
+      },
+      {
+        input:`
+        R50
+        R200
+        `,
+        expected: 3
+      },
+      {
+        input:`
+        R49
+        R1
+        `,
+        expected: 1
+      },
+      {
+        input:`
+        L49
+        L1
+        `,
+        expected: 1
+      },
+      {
+        input:`
+        L50
+        L950
+        L50
+        `,
+        expected: 11
+      },
+      {
+        input:`
+        L50
+        R1
+        `,
+        expected: 1
+      },
+      {
+        input:`
+        R1000
+        L1000
+        L50
+        R1
+        L1
+        L1
+        R1
+        R100
+        R1
+        `,
+        expected: 24
+      },
+      {
+        input:`
+          L50
+          R101
+        `,
+        expected: 2
+      },
+      {
+        input:`
+          R49
+          L98
+        `,
+        expected: 0
+      },
+      {
+        input:`
+          R49
+          R1
+        `,
+        expected: 1
+      },
+      {
+        input:`
+          L50
+          R400
+        `,
+        expected: 5
+      },
+      {
+        input:`
+        R1000
+        `,
+        expected: 10
+      },
+      {
+        input:`
+        L50
+        `,
+        expected: 1
       }
-
-
     ],
     solution: part2,
   },
   trimTestInputs: true,
-  onlyTests:  true,
+  onlyTests:  false,
 });
