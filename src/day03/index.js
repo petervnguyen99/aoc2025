@@ -17,10 +17,41 @@ const part2 = (rawInput) => {
 run({
   part1: {
     tests: [
-      // {
-      //   input: ``,
-      //   expected: "",
-      // },
+      {
+        input:`
+          987654321111111
+        `,
+        expected: 98
+      },
+      {
+        input:`
+          811111111111119
+        `,
+        expected: 89
+      },
+      {
+        input:`
+          234234234234278
+        `,
+        expected: 78
+      },
+      {
+        input:`
+          818181911112111
+        `,
+        expected: 92
+      },
+      {
+        input:`
+          987654321111111
+          811111111111119
+          234234234234278
+          818181911112111
+        `,
+        expected: 357
+      },
+
+
     ],
     solution: part1,
   },
@@ -34,5 +65,5 @@ run({
     solution: part2,
   },
   trimTestInputs: true,
-  onlyTests: false,
+  onlyTests: true,
 });
