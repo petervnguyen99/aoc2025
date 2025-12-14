@@ -4,8 +4,31 @@ const parseInput = (rawInput) => rawInput;
 
 const part1 = (rawInput) => {
   const input = parseInput(rawInput);
+  const largestJoltages = [];
 
-  return;
+  const banks = input.split('\n');
+  
+  for(let i=0; i<banks.length; i++) {
+    const currentBank = banks[i];
+    // the last number can never be the first digit since we have to choose exactly two.
+    // so we could just split it off then find the largest number.
+    const currentBankArr = currentBank.split('')
+    const lastBattery = currentBankArr.pop();
+    const firstLargestBattery = Math.max(...currentBankArr).toString();
+    // once we get that 1st largest number we can then remove everything from the left of it.
+    // including that largest number
+    const reducedBankArr = currentBankArr.slice(currentBankArr.indexOf(firstLargestBattery) + 1)
+
+    // put the last number back and then find the second largest number.
+    reducedBankArr.push(lastBattery);
+    const secondLargestBattery = Math.max(...reducedBankArr).toString();
+
+    // Combine the numbers and add it to a array of largest joltages.
+    largestJoltages.push(Number(firstLargestBattery + secondLargestBattery));
+  }
+
+  // return the sum of that array.
+  return largestJoltages.reduce((accumulator, currentValue) => accumulator + currentValue);
 };
 
 const part2 = (rawInput) => {
@@ -65,5 +88,5 @@ run({
     solution: part2,
   },
   trimTestInputs: true,
-  onlyTests: true,
+  onlyTests: false,
 });
